@@ -25,7 +25,27 @@ This project demonstrates how to organize and build modular C++ libraries and ap
 
 ## Directory Structure
 
-libs/ ├── common/ │     └── include/common/meson_hello_api.h ├── greetings/ │     ├── include/greetings/greetings.h │     └── src/greetings.cpp ├── salutations/ │     ├── include/salutations/salutations.h │     └── src/salutations.cpp apps/ └── hello/ ├── hello.cpp └── meson.build meson.build .gitignore
+```sh
+apps/ 
+	├──hello/ 
+	│     └── hello.cpp 
+	│     └── meson.build
+libs/ 
+	├── common/ 
+	│     └── include/common/meson_hello_api.h
+	│     └── meson.build
+	├── greetings/ 
+	│     └── include/greetings/greetings.h 
+	│     └── src/greetings.cpp
+	│     └── meson.build
+	├── salutations/ │     
+	│     └── include/salutations/salutations.h 
+	│     └── src/salutations.cpp 
+	│     └── meson.build
+
+meson.build
+.gitignore
+```
 
 ---
 
@@ -48,16 +68,16 @@ pip install meson ninja
 
 3. Configure the build directory:<br>
 	Notes:
-	- --prefix sets the `install` directory. \<install directory\> must be an absolute path
-	- --backend=vs generates a Visual Studio solution
-	- Run "meson --help setup" for additional options <br>
+	- `--prefix` sets the `install` directory. \<install directory\> must be an absolute path
+	- `--backend=vs` generates a Visual Studio solution
+	- Run `meson --help setup` for additional options <br>
 	<p>
 	If you built the visual studio solution, you can open that now and build and run in Visual Studio.
 	If you prefer to build on the command line, continue to step 4.
 
 ```sh
 meson setup <build directory> --backend=vs --prefix <install directory>
-example: setup build/build-win --backend=vs --prefix c:/git/meson-test/install/bin
+example: meson setup build/build-win --backend=vs --prefix c:/git/meson-test/install/bin
 ```
 
 4. Build the project:
@@ -92,7 +112,7 @@ example: install\bin\hello.exe
 
 ---
 
-## Linux
+## Linux (Not yet validated)
 
 ### Linux Prerequisites
 
