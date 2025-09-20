@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "meson_hello_api.h"
-#include "salutations.h"
+#include "common/meson_hello_api.h"
+#include "salutations/salutations.h"
 
 extern "C" 
 {

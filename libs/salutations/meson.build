@@ -3,7 +3,7 @@ salutations_inc = include_directories('include')
 salutations_lib = library('salutations',
     sources: [
         'src/salutations.cpp',
-        'include/salutations.h'
+        'include/salutations/salutations.h'
     ],
     include_directories: [salutations_inc],
     dependencies: [common_dep],

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "meson_hello_api.h"
+#include "common/meson_hello_api.h"
 
 #ifdef __cplusplus
 extern "C"

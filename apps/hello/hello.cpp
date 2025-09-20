@@ -1,6 +1,6 @@
 #include <iostream>
-#include "greetings.h"
-#include "salutations.h"
+#include "greetings/greetings.h"
+#include "salutations/salutations.h"
 
 int main(void)
 {

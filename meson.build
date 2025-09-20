@@ -8,6 +8,8 @@ project('meson-test', 'cpp',
     ]
 )
 
+# subdir order matters
+# make sure dependecies come before dependents
 subdir('libs/common')
 subdir('libs/salutations')
 subdir('libs/greetings')

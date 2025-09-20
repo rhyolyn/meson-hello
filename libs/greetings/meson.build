@@ -3,7 +3,7 @@ greetings_inc = include_directories('include')
 greetings_lib = library('greetings',
     sources: [
         'src/greetings.cpp',
-        'include/greetings.h'
+        'include/greetings/greetings.h'
     ],
     include_directories: [greetings_inc, salutations_inc],
     dependencies: [common_dep, salutations_dep],
