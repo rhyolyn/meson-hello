@@ -1,14 +1,16 @@
 #include <iostream>
+
+#include "meson_hello_api.h"
 #include "salutations.h"
 
 extern "C" 
 {
-    __declspec(dllexport) void salutations() 
+    MESON_HELLO_API void salutations()
     {
         std::cout << __func__ << ": Salutations" << std::endl;
     }
 
-    __declspec(dllexport) void regards()
+    MESON_HELLO_API void regards()
     {
         std::cout << __func__ << ": Regards" << std::endl;
     }

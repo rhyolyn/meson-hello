@@ -1,10 +1,12 @@
 #include <iostream>
+
+#include "meson_hello_api.h"
 #include "greetings.h"
 #include "salutations.h"
 
 extern "C"
 {
-    __declspec(dllexport) void greetings()
+    MESON_HELLO_API void greetings()
     {
         std::cout << __func__ << ": Greetings" << std::endl;
         salutations();

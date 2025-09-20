@@ -1,11 +1,13 @@
 #pragma once
 
+#include "meson_hello_api.h"
+
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-	__declspec(dllexport) void greetings();
+	MESON_HELLO_API void greetings();
 
 #ifdef __cplusplus
 }
