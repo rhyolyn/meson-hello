@@ -8,6 +8,6 @@ project('meson-test', 'cpp',
     ]
 )
 
-# Add subdirectories
-subdir('libs/os_utils')
+subdir('libs/salutations')
+subdir('libs/greetings')
 subdir('apps/hello')
