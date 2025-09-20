@@ -1,4 +1,4 @@
-project('meson-test', 'cpp',
+project('meson-hello', 'cpp',
     version : '0.1',
     default_options : [
         'cpp_std=c++14',
@@ -14,3 +14,4 @@ subdir('libs/common')
 subdir('libs/salutations')
 subdir('libs/greetings')
 subdir('apps/hello')
+
