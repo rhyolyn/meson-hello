@@ -4,3 +4,5 @@ hello_exe = executable('hello',
     install: true,
     install_dir: join_paths(get_option('prefix'))
 )
+
+subdir('tests')

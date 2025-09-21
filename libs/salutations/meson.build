@@ -17,3 +17,5 @@ salutations_dep = declare_dependency(
     include_directories: salutations_inc,
     dependencies: [common_dep]
 )
+
+subdir('tests')
