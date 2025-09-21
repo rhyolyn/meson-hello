@@ -69,15 +69,11 @@ pip install meson ninja
 3. Configure the build directory:<br>
 	Notes:
 	- `--prefix` sets the `install` directory. \<install directory\> must be an absolute path
-	- `--backend=vs` generates a Visual Studio solution
 	- Run `meson --help setup` for additional options <br>
-	<p>
-	If you built the visual studio solution, you can open that now and build and run in Visual Studio.
-	If you prefer to build on the command line, continue to step 4.
 
 ```sh
 meson setup <build directory> --backend=vs --prefix <install directory>
-example: meson setup build/build-win --backend=vs --prefix c:/git/meson-test/install/bin
+example: meson setup build/build-win --prefix c:/git/meson-test/install/bin
 ```
 
 4. Build the project:
