@@ -19,10 +19,11 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Rez
+      - name: Install Rez from source
         run: |
-          python -m pip install --upgrade pip
-          pip install rez
+          git clone https://github.com/AcademySoftwareFoundation/rez.git
+          cd rez
+          python install.py
 
       - name: Build with Rez
         run: rez-build .
