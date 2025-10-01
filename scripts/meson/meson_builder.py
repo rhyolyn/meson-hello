@@ -4,7 +4,7 @@ import subprocess
 class MesonBuilder:
     def __init__(self, project_root, build_dir=None, install_dir=None, path_finder=None):
         self.project_root = os.path.abspath(project_root)
-        self.build_dir = build_dir or os.path.join(self.project_root, "build", "standalone")
+        self.build_dir = build_dir or os.path.join(self.project_root, "build")
         self.install_dir = install_dir or os.path.join(self.project_root, "install")
         self.path_finder = path_finder
         os.makedirs(self.build_dir, exist_ok=True)
