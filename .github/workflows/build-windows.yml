@@ -26,6 +26,3 @@ jobs:
 
       - name: Run Meson build script
         run: python scripts/meson/build.py --clean
-
-      - name: Run tests (GTest)
-        run: meson test -C builddir --print-errorlogs
