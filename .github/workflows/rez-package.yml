@@ -25,5 +25,10 @@ jobs:
           cd rez
           python install.py
 
+      - name: Add Rez to PATH
+        run: |
+          $rezScripts = python -c "import site; print(site.USER_BASE + r'\Scripts\rez')"
+          echo "$rezScripts" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
+
       - name: Build with Rez
         run: rez-build .
