@@ -8,7 +8,22 @@ requires = [
     "python-3.6+"
 ]
 tools = []
-build_command = "python {root}/scripts/rez/build.py {install}"
+
+def build_command():
+    import os
+    import sys
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "scripts", "rez"))
+    from rez_builder import RezBuilder
+    # Optionally import PathFinder if you want to use it
+    try:
+        from scripts.meson.windows.path_finder import PathFinder
+        path_finder = PathFinder()
+    except ImportError:
+        path_finder = None
+
+    project_root = os.path.dirname(os.path.abspath(__file__))
+    builder = RezBuilder(project_root, path_finder=path_finder)
+    builder.run()
 
 def commands():
     import os
