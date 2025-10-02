@@ -10,7 +10,7 @@ class MesonBuilder(ABC):
 
     BUILDER: str = "meson"
     DEFAULT_BUILD_DIR: str = "build"
-    DEFAULT_INSTALL_DIR: str = "install/bin"
+    DEFAULT_INSTALL_DIR: str = f"install{os.sep}bin"
 
     class Command(Enum):
         SETUP = "setup"
