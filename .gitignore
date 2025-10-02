@@ -1,5 +1,7 @@
 .vs/
+.idea/
 build/
 install/
 meson apps/
 meson libs/
+**/__pycache__/
