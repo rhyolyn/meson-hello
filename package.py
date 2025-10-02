@@ -16,7 +16,7 @@ def build_command():
     from meson_builder import MesonBuilder
     # Optionally import PathFinder if you want to use it
     try:
-        from scripts.meson.windows.path_finder import PathFinder
+        from scripts.meson.path_finder import PathFinder
         path_finder = PathFinder()
     except ImportError:
         path_finder = None
