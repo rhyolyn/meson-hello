@@ -1,7 +1,12 @@
 import os
 import sys
+from pathlib import Path
+
+project_root = str(Path(__file__).resolve().parents[2])
+sys.path.insert(0, project_root)
+
 from windows.path_finder import PathFinder
-from meson_builder import MesonBuilder
+from builder import MesonBuilder
 
 class ArgParser:
     def __init__(self):
@@ -13,10 +18,7 @@ class ArgParser:
         return self.parser.parse_args()
 
 def main():
-    arg_parser = ArgParser()
-    args = arg_parser.parse()
-
-    project_root = os.path.dirname(os.path.abspath(__file__))
+    args = ArgParser().parse()
     builder = MesonBuilder(project_root, path_finder=PathFinder())
     builder.run(clean=args.clean)
 
