@@ -21,7 +21,7 @@ jobs:
     - name: Install system dependencies
       run: |
         brew update
-        brew install cmake ninja
+        brew install ninja
 
     - name: Install Meson
       run: |
@@ -30,7 +30,7 @@ jobs:
 
     - name: Build project
       run: |
-        python scripts/main.py --clean
+        python scripts/meson/build.py --clean
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
