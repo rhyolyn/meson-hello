@@ -13,7 +13,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y build-essential ninja-build
     - name: Call builder
-      uses: ./.github/workflows/builder.yml
+      uses: ./.github/actions/builder
       with:
         os: 'linux'
         version: ${{ needs.set-version.outputs.version }}
@@ -24,7 +24,7 @@ jobs:
     - name: Install Windows dependencies
       uses: microsoft/setup-msbuild@v1
     - name: Call builder
-      uses: ./.github/workflows/builder.yml
+      uses: ./.github/actions/builder
       with:
         os: 'windows'
         version: ${{ needs.set-version.outputs.version }}
@@ -37,7 +37,7 @@ jobs:
         brew update
         brew install cmake ninja
     - name: Call builder
-      uses: ./.github/workflows/builder.yml
+      uses: ./.github/actions/builder
       with:
         os: 'macos'
         version: ${{ needs.set-version.outputs.version }}
