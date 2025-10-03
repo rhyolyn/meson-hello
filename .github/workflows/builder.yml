@@ -1,9 +1,9 @@
-name: Reusable Build
+name: Reusable Builder
 
 on:
   workflow_call:
     inputs:
-      platform:
+      os:
         required: true
         type: string
         description: 'Operating system to build on (Linux/Windows/Macos)'
@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ inputs.platform == 'linux' && 'ubuntu-latest' || inputs.platform == 'windows' && 'windows-latest' || 'macos-latest' }}
+    runs-on: ${{ inputs.os == 'linux' && 'ubuntu-latest' || inputs.os == 'windows' && 'windows-latest' || 'macos-latest' }}
 
     steps:
     - uses: actions/checkout@v4
@@ -25,19 +25,19 @@ jobs:
         python-version: '3.11'
 
     - name: Install Linux dependencies
-      if: inputs.platform == 'linux'
+      if: inputs.os == 'linux'
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential ninja-build
 
     - name: Install macOS dependencies
-      if: inputs.platform == 'macos'
+      if: inputs.os == 'macos'
       run: |
         brew update
         brew install cmake ninja
 
     - name: Install Windows dependencies
-      if: inputs.platform == 'windows'
+      if: inputs.os == 'windows'
       uses: microsoft/setup-msbuild@v1
 
     - name: Install Meson
@@ -47,14 +47,14 @@ jobs:
 
     - name: Build project
       run: |
-        python scripts/main.py --clean
+        python scripts/meson/build.py --clean
       env:
         BUILD_VERSION: ${{ inputs.version }}
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ inputs.platform }}-build-${{ inputs.version }}
+        name: ${{ inputs.os }}-build-${{ inputs.version }}
         path: |
           build/
           install/

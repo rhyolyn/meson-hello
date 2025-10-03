@@ -1,4 +1,4 @@
-name: Build All Platforms
+name: Build All Operating Systems
 
 on:
   push:
@@ -14,19 +14,19 @@ jobs:
     needs: set-version
     uses: ./.github/workflows/builder.yml
     with:
-      platform: 'linux'
+      os: 'linux'
       version: ${{ needs.set-version.outputs.version }}
 
   build-windows:
     needs: set-version
     uses: ./.github/workflows/builder.yml
     with:
-      platform: 'windows'
+      os: 'windows'
       version: ${{ needs.set-version.outputs.version }}
 
   build-macos:
     needs: set-version
     uses: ./.github/workflows/builder.yml
     with:
-      platform: 'macos'
+      os: 'macos'
       version: ${{ needs.set-version.outputs.version }}
