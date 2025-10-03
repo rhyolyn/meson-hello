@@ -1,32 +1,37 @@
-name: Build All Operating Systems
-
-on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main ]
-
 jobs:
-  set-version:
-    uses: ./.github/workflows/set_version.yml
-
   build-linux:
-    needs: set-version
-    uses: ./.github/workflows/builder.yml
-    with:
-      os: 'linux'
-      version: ${{ needs.set-version.outputs.version }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Linux dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential ninja-build
+    - name: Call builder
+      uses: ./.github/workflows/builder.yml
+      with:
+        os: 'linux'
+        version: ${{ needs.set-version.outputs.version }}
 
   build-windows:
-    needs: set-version
-    uses: ./.github/workflows/builder.yml
-    with:
-      os: 'windows'
-      version: ${{ needs.set-version.outputs.version }}
+    runs-on: windows-latest
+    steps:
+    - name: Install Windows dependencies
+      uses: microsoft/setup-msbuild@v1
+    - name: Call builder
+      uses: ./.github/workflows/builder.yml
+      with:
+        os: 'windows'
+        version: ${{ needs.set-version.outputs.version }}
 
   build-macos:
-    needs: set-version
-    uses: ./.github/workflows/builder.yml
-    with:
-      os: 'macos'
-      version: ${{ needs.set-version.outputs.version }}
+    runs-on: macos-latest
+    steps:
+    - name: Install macOS dependencies
+      run: |
+        brew update
+        brew install cmake ninja
+    - name: Call builder
+      uses: ./.github/workflows/builder.yml
+      with:
+        os: 'macos'
+        version: ${{ needs.set-version.outputs.version }}

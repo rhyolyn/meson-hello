@@ -6,11 +6,9 @@ on:
       os:
         required: true
         type: string
-        description: 'Operating system to build on (Linux/Windows/Macos)'
       version:
         required: true
         type: string
-        description: 'Build version'
 
 jobs:
   build:
@@ -23,22 +21,6 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
-
-    - name: Install Linux dependencies
-      if: inputs.os == 'linux'
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y build-essential ninja-build
-
-    - name: Install macOS dependencies
-      if: inputs.os == 'macos'
-      run: |
-        brew update
-        brew install cmake ninja
-
-    - name: Install Windows dependencies
-      if: inputs.os == 'windows'
-      uses: microsoft/setup-msbuild@v1
 
     - name: Install Meson
       run: |
