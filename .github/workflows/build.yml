@@ -6,7 +6,11 @@ on:
     branches: [ main ]
 
 jobs:
+  set-version:
+    uses: ./.github/workflows/set_version.yml
+
   build-linux:
+    needs: set-version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,6 +23,7 @@ jobs:
           version: ${{ needs.set-version.outputs.version }}
 
   build-windows:
+    needs: set-version
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,6 +36,7 @@ jobs:
           version: ${{ needs.set-version.outputs.version }}
 
   build-macos:
+    needs: set-version
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
