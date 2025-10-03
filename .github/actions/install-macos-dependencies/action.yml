@@ -1,0 +1,9 @@
+name: Install macOS Dependencies
+description: Installs cmake and ninja on macOS
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        brew update
+        brew install cmake ninja
+      shell: bash
