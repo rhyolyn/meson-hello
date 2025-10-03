@@ -6,7 +6,7 @@ on:
       platform:
         required: true
         type: string
-        description: 'Platform to build on (linux/windows/macos)'
+        description: 'Operating system to build on (Linux/Windows/Macos)'
       version:
         required: true
         type: string

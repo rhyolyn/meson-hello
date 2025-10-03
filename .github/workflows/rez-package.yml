@@ -27,5 +27,12 @@ jobs:
 
     - name: Build with Rez
       run: |
-        python -c "import site; import os; rez_path = os.path.join(site.USER_BASE, 'Scripts', 'rez-build.exe'); os.system(f'{rez_path} .')"
+        D:\opt\rez\Scripts\rez\rez-build .
       shell: cmd
+
+    - name: Upload Rez package artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: rez-package
+        path: |
+          dist/

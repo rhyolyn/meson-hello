@@ -12,21 +12,21 @@ jobs:
 
   build-linux:
     needs: set-version
-    uses: ./.github/workflows/build-platform.yml
+    uses: ./.github/workflows/builder.yml
     with:
       platform: 'linux'
       version: ${{ needs.set-version.outputs.version }}
 
   build-windows:
     needs: set-version
-    uses: ./.github/workflows/build-platform.yml
+    uses: ./.github/workflows/builder.yml
     with:
       platform: 'windows'
       version: ${{ needs.set-version.outputs.version }}
 
   build-macos:
     needs: set-version
-    uses: ./.github/workflows/build-platform.yml
+    uses: ./.github/workflows/builder.yml
     with:
       platform: 'macos'
       version: ${{ needs.set-version.outputs.version }}
