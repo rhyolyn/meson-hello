@@ -25,8 +25,13 @@ jobs:
         python install.py
       shell: bash
 
-    - name: Add Rez to PATH
-      run: echo "$HOME/.local/bin" >> $GITHUB_PATH
+    - name: Find rez-build and add to PATH (Ubuntu)
+      run: |
+        REZ_BUILD_PATH=$(which rez-build || true)
+        if [ -n "$REZ_BUILD_PATH" ]; then
+          REZ_BUILD_DIR=$(dirname "$REZ_BUILD_PATH")
+          echo "$REZ_BUILD_DIR" >> $GITHUB_PATH
+        fi
       shell: bash
 
     - name: Build with Rez
