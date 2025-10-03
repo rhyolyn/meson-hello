@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Linux dependencies
-        uses: ./.github/actions/install-linux-deps
+        uses: ./.github/actions/install-linux-dependencies
       - name: Call builder
         uses: ./.github/actions/builder
         with:
@@ -35,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install macOS dependencies
-        uses: ./.github/actions/install-macos-deps
+        uses: ./.github/actions/install-macos-dependencies
       - name: Call builder
         uses: ./.github/actions/builder
         with:
