@@ -11,24 +11,21 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
 
-      - name: Install Rez from source
-        run: |
-          git clone https://github.com/AcademySoftwareFoundation/rez.git
-          cd rez
-          python install.py
+    - name: Install Rez from source
+      run: |
+        git clone https://github.com/AcademySoftwareFoundation/rez.git
+        cd rez
+        python install.py
+      shell: cmd
 
-      - name: Add Rez to PATH
-        run: |
-          $rezScripts = python -c "import site; print(site.USER_BASE + r'\Scripts')"
-          echo "$rezScripts" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
-
-      - name: Build with Rez
-        run: rez-build .
+    - name: Build with Rez
+      run: |
+        python -c "import site; import os; rez_path = os.path.join(site.USER_BASE, 'Scripts', 'rez-build.exe'); os.system(f'{rez_path} .')"
+      shell: cmd
