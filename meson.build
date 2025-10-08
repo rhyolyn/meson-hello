@@ -12,6 +12,7 @@ project('meson-hello', 'cpp',
 # make sure dependecies come before dependents
 subdir('libs/common')
 subdir('libs/salutations')
+subdir('libs/hello_adapter')
 subdir('libs/greetings')
 subdir('apps/hello')
 
