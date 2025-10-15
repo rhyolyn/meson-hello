@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "*.cpp": "cpp",
+        "*.h": "cpp",
+        "meson.build": "meson"
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "debug.console.acceptSuggestionOnEnter": "off",
+    "debug.console.closeOnEnd": false,
+    "debug.inlineValues": "on",
+    "debug.showInStatusBar": "always",
+    "workbench.startupEditor": "readme",
+    "explorer.confirmDelete": true,
+    "explorer.confirmDragAndDrop": true,
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "workbench.tips.enabled": true,
+    "window.commandCenter": true,
+    "workbench.welcomePage.walkthroughs.openOnInstall": false
+}
