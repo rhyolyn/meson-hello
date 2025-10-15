@@ -13,7 +13,7 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "(Linux/Mac) Debug",
+            "name": "(Linux) Debug",
             "type": "cppdbg",
             "request": "launch", 
             "program": "${workspaceFolder}/install/bin/hello",
@@ -22,6 +22,16 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "MIMode": "gdb"
+        },
+        {
+            "name": "(Mac) Debug",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/install/bin/hello",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": []
         }
     ]
 }
